@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.duplicate.requests'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 configurations {
 	compileOnly {
@@ -19,10 +19,22 @@ repositories {
 }
 
 dependencies {
+	// Basic 
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// Security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	// Develop Tool
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	
+	// DB
+	implementation 'mysql:mysql-connector-java'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+	// Properties
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
