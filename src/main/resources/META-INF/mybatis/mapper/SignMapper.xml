@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.duplicate.requests.avoid.api.mapper.SignMapper">
+<mapper namespace="com.duplicate.requests.avoid.api.sign.SignMapper">
+
+    <!-- Create -->
+    <insert id="insert" parameterType="Sign" useGeneratedKeys="true" keyProperty="idx">
+        INSERT INTO redundancy.`user` (email, name, password, reg_date) 
+        VALUES(#{email}, #{name}, #{password}, #{regDate});
+    </insert>
 
     <select id="count" resultType="Integer">
         SELECT  COUNT(*)
-        FROM    `base_table`
+        FROM    `user`
     </select>
 </mapper>

@@ -8,7 +8,7 @@ spring:
     # DB
     datasource:
         driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-        url: jdbc:log4jdbc:mysql://localhost:3306/basic?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+        url: jdbc:log4jdbc:mysql://localhost:3306/redundancy?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
         username: root
         password: root
         hikari:
@@ -17,6 +17,18 @@ spring:
             maximumPoolSize: 10
 mybatis:
     mapper-locations: classpath:/META-INF/mybatis/*/*.xml
-    type-aliases-package: com.duplicate.requests.avoid.api.model
+    type-aliases-package: com.duplicate.requests.avoid.api.*.model
 logging:
     config: classpath:logback.xml
+
+# Token Info
+jwt:
+    # 무작위 생성된 UUID
+    secret:
+        Key: d96607dc-4a0c-4106-95df-4e56ed98d0e1
+    # 1 Hour
+    access:
+        expire: 10800000
+    # 1 Day
+    refresh:
+        expire: 86400000
