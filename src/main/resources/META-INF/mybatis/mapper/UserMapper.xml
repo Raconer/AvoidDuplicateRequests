@@ -3,13 +3,13 @@
 <mapper namespace="com.duplicate.requests.avoid.api.user.mapper.UserMapper">
 
     <!-- Create -->
-    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="idx">
+    <insert id="insert" parameterType="UserDto" useGeneratedKeys="true" keyProperty="idx">
         INSERT INTO redundancy.`user` (email, name, password, reg_date) 
         VALUES(#{email}, #{name}, #{password}, #{regDate});
     </insert>
 
     <!-- Read -->
-    <select id="get" parameterType="User" resultType="User">
+    <select id="get" parameterType="UserDto" resultType="UserDto">
         SELECT  `idx`,
                 `email`,
                 `name`,
@@ -26,7 +26,7 @@
     </select>
 
     <!-- Update -->
-    <update id="update" parameterType="User">
+    <update id="update" parameterType="UserDto">
         UPDATE `user`
         <trim prefix="SET" suffixOverrides=",">
             <if test="refreshToken != null and refreshToken != ''">

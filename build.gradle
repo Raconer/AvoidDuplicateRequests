@@ -25,20 +25,20 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// Develop Tool
 	implementation 'org.springframework.boot:spring-boot-devtools'
-	
 	// DB
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-
 	// JWT
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	// jaxb // JDK  java EE API 미포함
 	implementation 'javax.xml.bind:jaxb-api:2.3.1'
-
 	// Validator
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-
+	// String Utils // startsWith사용시 null과 value값 동시 체크
+	implementation 'org.apache.commons:commons-lang3:3.4'
+	// GSON Jwt Auth Entry Point json 파일 생성
+	implementation 'com.google.code.gson:gson:2.9.0'
 	// Properties
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

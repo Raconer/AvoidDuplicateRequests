@@ -1,11 +1,11 @@
-package com.duplicate.requests.avoid.api.user.model;
+package com.duplicate.requests.avoid.api.user.dto;
 
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 
 @Data
-public class Account {
+public class AccountDto {
     @NotBlank
     private String email;
 

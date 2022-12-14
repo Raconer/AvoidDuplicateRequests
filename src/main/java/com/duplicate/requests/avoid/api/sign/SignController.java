@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.duplicate.requests.avoid.api.sign.model.Auth;
+import com.duplicate.requests.avoid.api.sign.dto.AuthDto;
 import com.duplicate.requests.avoid.api.sign.service.SignService;
-import com.duplicate.requests.avoid.api.user.model.Account;
-import com.duplicate.requests.avoid.api.user.model.User;
+import com.duplicate.requests.avoid.api.user.dto.AccountDto;
+import com.duplicate.requests.avoid.api.user.dto.UserDto;
 import com.duplicate.requests.avoid.api.user.service.UserService;
 import com.duplicate.requests.avoid.common.model.DefDataResponse;
 import com.duplicate.requests.avoid.common.model.DefResponse;
@@ -33,7 +33,7 @@ public class SignController {
 
     /* 회원 가입 */
     @PostMapping("/up")
-    public ResponseEntity<?> signUp(@RequestBody @Valid User user, BindingResult result) {
+    public ResponseEntity<?> signUp(@RequestBody @Valid UserDto user, BindingResult result) {
         if (result.hasErrors()) {
             return ValidErrUtil.getValidateError(result.getFieldErrors());
         }
@@ -47,16 +47,16 @@ public class SignController {
 
     /* 로그인 */
     @PostMapping
-    public ResponseEntity<?> signIn(@RequestBody @Valid Account account, BindingResult result) {
+    public ResponseEntity<?> signIn(@RequestBody @Valid AccountDto accountDto, BindingResult result) {
         if (result.hasErrors()) {
             return ValidErrUtil.getValidateError(result.getFieldErrors());
         }
 
-        log.info("User Data : {}", account.toString());
+        log.info("User Data : {}", accountDto.toString());
 
-        Auth auth = signService.auth(account);
-        if (auth != null) {
-            return ResponseEntity.ok(new DefDataResponse(HttpStatus.OK, auth));
+        AuthDto authDto = signService.auth(accountDto);
+        if (authDto != null) {
+            return ResponseEntity.ok(new DefDataResponse(HttpStatus.OK, authDto));
         }
 
         return ResponseEntity.ok(new DefResponse(HttpStatus.BAD_REQUEST));

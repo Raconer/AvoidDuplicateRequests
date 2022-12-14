@@ -8,6 +8,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.duplicate.requests.avoid.filter.JwtAuthenticationEntryPoint;
+import com.duplicate.requests.avoid.filter.JwtRequestFilter;
 
 import lombok.AllArgsConstructor;
 
@@ -15,6 +19,9 @@ import lombok.AllArgsConstructor;
 @EnableWebSecurity
 @AllArgsConstructor
 public class Security {
+
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    private JwtRequestFilter jwtRequestFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -26,11 +33,17 @@ public class Security {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/sign/up").permitAll()
+                .antMatchers("/api/sign").permitAll()
+                .antMatchers("/api/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint);
+
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

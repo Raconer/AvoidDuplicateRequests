@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.user.model;
+package com.duplicate.requests.avoid.api.user.dto;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @Builder
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class User extends Account {
+public class UserDto extends AccountDto {
 
     private int idx;
 
@@ -23,10 +23,10 @@ public class User extends Account {
     private Date regDate;
     private String refreshToken;
 
-    public User() {
+    public UserDto() {
     }
 
-    public User(String email) {
+    public UserDto(String email) {
         super.setEmail(email);
     }
 

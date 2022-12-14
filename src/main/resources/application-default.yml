@@ -18,7 +18,7 @@ spring:
 mybatis:
     config-location: classpath:/META-INF/mybatis/mybatis-config.xml
     mapper-locations: classpath:/META-INF/mybatis/*/*.xml
-    type-aliases-package: com.duplicate.requests.avoid.api.*.model
+    type-aliases-package: com.duplicate.requests.avoid.api.*.dto
 logging:
     config: classpath:logback.xml
 
@@ -29,7 +29,7 @@ jwt:
         Key: d96607dc-4a0c-4106-95df-4e56ed98d0e1
     # 1 Hour
     access:
-        expire: 10800000
+        expire: 1080000
     # 1 Day
     refresh:
         expire: 86400000

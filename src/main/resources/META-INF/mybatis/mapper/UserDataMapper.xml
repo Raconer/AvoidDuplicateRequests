@@ -3,7 +3,7 @@
 <mapper namespace="com.duplicate.requests.avoid.api.userData.mapper.UserDataMapper">
 
     <!-- Create -->
-    <insert id="insert" parameterType="UserData">
+    <insert id="insert" parameterType="UserDataDto">
         INSERT INTO redundancy.user_data (`user_idx`, `point`) 
         VALUES(#{userIdx}, #{point});
     </insert>

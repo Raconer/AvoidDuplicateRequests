@@ -1,17 +1,17 @@
-package com.duplicate.requests.avoid.api.userData.model;
+package com.duplicate.requests.avoid.api.userData.dto;
 
 import lombok.Data;
 
 @Data
-public class UserData {
+public class UserDataDto {
     private int idx;
     private int userIdx;
     private int point;
 
-    public UserData() {
+    public UserDataDto() {
     }
 
-    public UserData(int userIdx) {
+    public UserDataDto(int userIdx) {
         this.userIdx = userIdx;
         this.point = 0;
     }

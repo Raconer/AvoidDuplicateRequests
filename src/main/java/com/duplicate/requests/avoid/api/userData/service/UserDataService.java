@@ -2,8 +2,8 @@ package com.duplicate.requests.avoid.api.userData.service;
 
 import org.springframework.stereotype.Service;
 
+import com.duplicate.requests.avoid.api.userData.dto.UserDataDto;
 import com.duplicate.requests.avoid.api.userData.mapper.UserDataMapper;
-import com.duplicate.requests.avoid.api.userData.model.UserData;
 
 import lombok.AllArgsConstructor;
 
@@ -15,10 +15,10 @@ public class UserDataService {
 
     public int insert(int userIdx) {
 
-        return this.insert(new UserData(userIdx));
+        return this.insert(new UserDataDto(userIdx));
     }
 
-    public int insert(UserData userData) {
+    public int insert(UserDataDto userData) {
         return userDataMapper.insert(userData);
     }
 }

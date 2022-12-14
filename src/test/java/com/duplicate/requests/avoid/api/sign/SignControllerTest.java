@@ -14,7 +14,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import com.duplicate.requests.avoid.api.user.model.User;
+import com.duplicate.requests.avoid.api.user.dto.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -30,7 +30,7 @@ public class SignControllerTest {
     @Test
     void testSignUp() {
 
-        User user = new User();
+        UserDto user = new UserDto();
         user.setEmail("unazuv@fagdo.nu");
         user.setName("Lucas Pope");
         user.setPassword("1q2w3e4r!#@$QWER");
