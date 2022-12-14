@@ -30,9 +30,9 @@ public class SignService implements UserDetailsService {
     UserDataService userDataService;
 
     // CREATE
-    public int signUp(UserDto user) {
-        if (userService.insert(user) == 1) {
-            return userDataService.insert(user.getIdx());
+    public int signUp(UserDto userDto) {
+        if (userService.insert(userDto) == 1) {
+            return userDataService.insert(userDto.getIdx());
         }
         return 0;
     }
@@ -47,20 +47,8 @@ public class SignService implements UserDetailsService {
             // 비밀번호가 틀렷을때
             return null;
         }
-        String token = JwtUtil.create(user.getEmail());
-        String refreshToken = JwtUtil.createRefresh();
 
-        // Refresh Token
-        int updateCnt = userService.update(UserDto.builder().idx(user.getIdx()).refreshToken(refreshToken).build());
-
-        if (updateCnt == 1) {
-            return AuthDto.builder()
-                    .email(user.getEmail())
-                    .name(user.getName())
-                    .token(token)
-                    .refreshToken(refreshToken).build();
-        }
-        return null;
+        return this.setAuthDto(user.getIdx(), user.getEmail(), user.getName());
     }
 
     @Override
@@ -78,7 +66,43 @@ public class SignService implements UserDetailsService {
         return new SignDto(userDto, user);
     }
 
+    // Refresh Token
+    public AuthDto refresh(String refreshToken) {
+
+        if (JwtUtil.getData(refreshToken) == null) {
+            return null;
+        }
+
+        UserDto userDto = UserDto.builder().refreshToken(refreshToken).build();
+        userDto = userService.get(userDto);
+
+        if (userDto == null) {
+            return null;
+        }
+
+        return this.setAuthDto(userDto.getIdx(), userDto.getEmail(), userDto.getName());
+    }
+
+    public AuthDto setAuthDto(int idx, String email, String name) {
+
+        String token = JwtUtil.create(email);
+        String refreshToken = JwtUtil.createRefresh();
+
+        // Refresh Token
+        int updateCnt = userService.update(UserDto.builder().idx(idx).refreshToken(refreshToken).build());
+
+        if (updateCnt == 1) {
+            return AuthDto.builder()
+                    .email(email)
+                    .name(name)
+                    .token(token)
+                    .refreshToken(refreshToken).build();
+        }
+        return null;
+    }
+
     public UserDto findByEmail(String email) {
         return userService.get(new UserDto(email));
     }
+
 }

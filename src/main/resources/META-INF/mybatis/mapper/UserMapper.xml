@@ -21,6 +21,9 @@
             <if test="email != null and email != ''">
                 AND `email` = #{email}
             </if>
+            <if test="refreshToken != null and refreshToken != ''">
+                AND `refresh_token` = #{refreshToken}
+            </if>
         </where>
         LIMIT 1;
     </select>

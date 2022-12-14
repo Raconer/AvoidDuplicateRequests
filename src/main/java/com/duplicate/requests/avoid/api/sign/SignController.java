@@ -2,6 +2,7 @@ package com.duplicate.requests.avoid.api.sign;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import com.duplicate.requests.avoid.api.sign.service.SignService;
 import com.duplicate.requests.avoid.api.user.dto.AccountDto;
 import com.duplicate.requests.avoid.api.user.dto.UserDto;
 import com.duplicate.requests.avoid.api.user.service.UserService;
+import com.duplicate.requests.avoid.common.code.ValidCode;
 import com.duplicate.requests.avoid.common.model.DefDataResponse;
 import com.duplicate.requests.avoid.common.model.DefResponse;
 import com.duplicate.requests.avoid.utils.ValidErrUtil;
@@ -62,4 +64,19 @@ public class SignController {
         return ResponseEntity.ok(new DefResponse(HttpStatus.BAD_REQUEST));
     }
 
+    /* 리프레쉬 토큰 */
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refresh(@RequestBody AuthDto authDto) {
+        String refreshToken = authDto.getRefreshToken();
+        if (StringUtils.isEmpty(refreshToken)) {
+            return ValidErrUtil.getValidateError("refreshToken", ValidCode.EMPTY);
+        }
+
+        authDto = signService.refresh(refreshToken);
+        if (authDto != null) {
+            return ResponseEntity.ok(new DefDataResponse(HttpStatus.OK, authDto));
+        }
+
+        return ResponseEntity.ok(new DefResponse(HttpStatus.BAD_REQUEST));
+    }
 }

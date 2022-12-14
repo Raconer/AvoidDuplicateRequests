@@ -17,23 +17,23 @@ public class UserService {
     private UserMapper userMapper;
 
     // Create
-    public int insert(UserDto user) {
+    public int insert(UserDto userDto) {
 
-        String password = user.getPassword();
-        user.setPassword(PasswordUtil.encoding(password));
+        String password = userDto.getPassword();
+        userDto.setPassword(PasswordUtil.encoding(password));
 
-        user.setRegDate(new Date());
+        userDto.setRegDate(new Date());
 
-        return userMapper.insert(user);
+        return userMapper.insert(userDto);
     }
 
     // Read
-    public UserDto get(UserDto user) {
-        return userMapper.get(user);
+    public UserDto get(UserDto userDto) {
+        return userMapper.get(userDto);
     }
 
     // Update
-    public int update(UserDto user) {
-        return userMapper.update(user);
+    public int update(UserDto userDto) {
+        return userMapper.update(userDto);
     }
 }
