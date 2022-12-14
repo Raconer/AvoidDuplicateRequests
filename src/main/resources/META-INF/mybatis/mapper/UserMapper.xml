@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duplicate.requests.avoid.api.user.mapper.UserMapper">
+
+    <!-- Create -->
+    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="idx">
+        INSERT INTO redundancy.`user` (email, name, password, reg_date) 
+        VALUES(#{email}, #{name}, #{password}, #{regDate});
+    </insert>
+
+    <!-- Read -->
+    <select id="get" parameterType="User" resultType="User">
+        SELECT  `idx`,
+                `email`,
+                `name`,
+                `password`,
+                `reg_date`,
+                `refresh_token`
+        FROM    `user`
+        <where>
+            <if test="email != null and email != ''">
+                AND `email` = #{email}
+            </if>
+        </where>
+        LIMIT 1;
+    </select>
+
+    <!-- Update -->
+    <update id="update" parameterType="User">
+        UPDATE `user`
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="refreshToken != null and refreshToken != ''">
+                refresh_token = #{refreshToken},
+            </if>
+        </trim>
+        <where>
+            <choose>
+                <otherwise>
+                    AND `idx` = #{idx}
+                </otherwise>
+            </choose>
+        </where>
+    </update>
+</mapper>

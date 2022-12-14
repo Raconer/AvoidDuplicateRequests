@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.duplicate.requests.avoid.api.sign.model.Sign;
+import com.duplicate.requests.avoid.api.sign.model.Auth;
+import com.duplicate.requests.avoid.api.sign.service.SignService;
+import com.duplicate.requests.avoid.api.user.model.Account;
+import com.duplicate.requests.avoid.api.user.model.User;
+import com.duplicate.requests.avoid.api.user.service.UserService;
+import com.duplicate.requests.avoid.common.model.DefDataResponse;
 import com.duplicate.requests.avoid.common.model.DefResponse;
 import com.duplicate.requests.avoid.utils.ValidErrUtil;
 
@@ -24,14 +29,16 @@ import lombok.extern.slf4j.Slf4j;
 public class SignController {
 
     SignService signService;
+    UserService userService;
 
     /* 회원 가입 */
     @PostMapping("/up")
-    public ResponseEntity<?> signUp(@RequestBody @Valid Sign signInfo, BindingResult result) {
+    public ResponseEntity<?> signUp(@RequestBody @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return ValidErrUtil.getValidateError(result.getFieldErrors());
         }
-        if (signService.insert(signInfo) == 1) {
+        if (signService.signUp(user) == 1) {
+            log.info("SignUp Success");
             return ResponseEntity.ok(new DefResponse(HttpStatus.OK));
         }
 
@@ -40,8 +47,19 @@ public class SignController {
 
     /* 로그인 */
     @PostMapping
-    public void signIn() {
+    public ResponseEntity<?> signIn(@RequestBody @Valid Account account, BindingResult result) {
+        if (result.hasErrors()) {
+            return ValidErrUtil.getValidateError(result.getFieldErrors());
+        }
 
+        log.info("User Data : {}", account.toString());
+
+        Auth auth = signService.auth(account);
+        if (auth != null) {
+            return ResponseEntity.ok(new DefDataResponse(HttpStatus.OK, auth));
+        }
+
+        return ResponseEntity.ok(new DefResponse(HttpStatus.BAD_REQUEST));
     }
 
 }

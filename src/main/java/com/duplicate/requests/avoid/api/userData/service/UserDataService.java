@@ -1,13 +1,12 @@
-package com.duplicate.requests.avoid.api.userData;
+package com.duplicate.requests.avoid.api.userData.service;
 
 import org.springframework.stereotype.Service;
 
+import com.duplicate.requests.avoid.api.userData.mapper.UserDataMapper;
 import com.duplicate.requests.avoid.api.userData.model.UserData;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 @AllArgsConstructor
 public class UserDataService {
@@ -20,7 +19,6 @@ public class UserDataService {
     }
 
     public int insert(UserData userData) {
-        log.info("Insert User Data");
         return userDataMapper.insert(userData);
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import com.duplicate.requests.avoid.api.sign.model.Sign;
+import com.duplicate.requests.avoid.api.user.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -30,17 +30,17 @@ public class SignControllerTest {
     @Test
     void testSignUp() {
 
-        Sign signInfo = new Sign();
-        signInfo.setEmail("unazuv@fagdo.nu");
-        signInfo.setName("Lucas Pope");
-        signInfo.setPassword("1q2w3e4r!#@$QWER");
+        User user = new User();
+        user.setEmail("unazuv@fagdo.nu");
+        user.setName("Lucas Pope");
+        user.setPassword("1q2w3e4r!#@$QWER");
 
         try {
 
             ObjectMapper mapper = new ObjectMapper();
             mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
             ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
-            String requestJson = ow.writeValueAsString(signInfo);
+            String requestJson = ow.writeValueAsString(user);
 
             MvcResult result = mockMvc.perform(
                     post("/api/sign/up")

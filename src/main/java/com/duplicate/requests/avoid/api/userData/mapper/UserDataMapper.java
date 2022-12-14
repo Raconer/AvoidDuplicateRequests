@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.userData;
+package com.duplicate.requests.avoid.api.userData.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;

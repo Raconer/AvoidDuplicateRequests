@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.duplicate.requests.avoid.api.userData.UserDataMapper">
+<mapper namespace="com.duplicate.requests.avoid.api.userData.mapper.UserDataMapper">
 
     <!-- Create -->
     <insert id="insert" parameterType="UserData">

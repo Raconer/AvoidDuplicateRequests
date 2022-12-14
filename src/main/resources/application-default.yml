@@ -16,6 +16,7 @@ spring:
             validationTimeout: 1000
             maximumPoolSize: 10
 mybatis:
+    config-location: classpath:/META-INF/mybatis/mybatis-config.xml
     mapper-locations: classpath:/META-INF/mybatis/*/*.xml
     type-aliases-package: com.duplicate.requests.avoid.api.*.model
 logging:
