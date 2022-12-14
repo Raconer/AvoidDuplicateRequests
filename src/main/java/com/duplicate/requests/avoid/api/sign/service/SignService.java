@@ -31,6 +31,11 @@ public class SignService implements UserDetailsService {
 
     // CREATE
     public int signUp(UserDto userDto) {
+
+        if (this.findByEmail(userDto.getEmail()) != null) {
+            return 0;
+        }
+
         if (userService.insert(userDto) == 1) {
             return userDataService.insert(userDto.getIdx());
         }
