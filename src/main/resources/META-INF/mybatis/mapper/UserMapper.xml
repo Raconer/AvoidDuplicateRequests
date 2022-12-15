@@ -4,7 +4,7 @@
 
     <!-- Create -->
     <insert id="insert" parameterType="UserDto" useGeneratedKeys="true" keyProperty="idx">
-        INSERT INTO redundancy.`user` (email, name, password, reg_date) 
+        INSERT INTO `user` (email, name, password, reg_date) 
         VALUES(#{email}, #{name}, #{password}, #{regDate});
     </insert>
 

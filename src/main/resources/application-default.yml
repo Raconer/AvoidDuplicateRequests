@@ -29,7 +29,7 @@ jwt:
         Key: d96607dc-4a0c-4106-95df-4e56ed98d0e1
     # 1 Hour
     access:
-        expire: 1080000
+        expire: 10800000
     # 1 Day
     refresh:
         expire: 86400000

@@ -4,7 +4,7 @@
 
     <!-- Create -->
     <insert id="insert" parameterType="UserDataDto">
-        INSERT INTO redundancy.user_data (`user_idx`, `point`) 
+        INSERT INTO `user_data` (`user_idx`, `point`) 
         VALUES(#{userIdx}, #{point});
     </insert>
 </mapper>
