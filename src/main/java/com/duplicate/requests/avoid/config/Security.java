@@ -34,7 +34,8 @@ public class Security {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/sign", "/api/sign/refresh").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/sign/**")
+                .permitAll()
                 .antMatchers("/api/**").authenticated()
                 .antMatchers(HttpMethod.GET, "/api/sign").authenticated()
                 .anyRequest().permitAll()

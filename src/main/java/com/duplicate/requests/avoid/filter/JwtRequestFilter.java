@@ -34,7 +34,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private SignService signService;
 
     private static final List<String> EXCLUDE_URL = Collections
-            .unmodifiableList(Arrays.asList("^/(?!api).*", "^/(api)/(sign)(/refresh)?$"));
+            .unmodifiableList(Arrays.asList("^/(?!api).*", "^/(api)/(sign)(/((refresh)|(up)))?$"));
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

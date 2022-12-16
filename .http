@@ -1,0 +1,56 @@
+@host=http://localhost:8080
+@email=unazuv@fagdo.nu
+@password=1q2w3e4r!#@$QWER
+@name=random name
+@token=
+
+# Sign -------------------------------
+# 회원 가입
+POST {{host}}/api/sign/up HTTP/1.1
+Content-Type: application/json
+
+{
+    "email" : "{{email}}",
+    "name" : "{{name}}",
+    "password": "{{password}}"
+}
+
+###
+# 로그인
+# @name login
+POST {{host}}/api/sign HTTP/1.1
+Content-Type: application/json
+
+{
+    "email" : "{{email}}",
+    "password": "{{password}}"
+}
+
+###
+# 리프레시 토큰
+# @name refresh
+@refreshToken = {{login.response.body.data.refreshToken}}
+
+POST {{host}}/api/sign/refresh HTTP/1.1
+Content-Type: application/json
+
+{
+    "refreshToken" : "{{refreshToken}}"
+}
+
+###
+# Sign -------------------------------
+# Reward 받기
+
+@token = {{login.response.body.data.token}}
+
+POST {{host}}/api/reward HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+# User -------------------------------
+# 테스트 용 사용자 리스트
+GET {{host}}/api/user HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
