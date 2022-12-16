@@ -3,7 +3,7 @@
 <mapper namespace="com.duplicate.requests.avoid.api.reward.mapper.RewardMapper">
 
     <!-- Create -->
-    <insert id="insert" parameterType="RewardInfoDto">
+    <insert id="insert" parameterType="RewardInfoDto" useGeneratedKeys="true" keyProperty="idx">
         <![CDATA[  
             INSERT INTO `reward` (`user_idx`, `reg_date`, `count`) 
             SELECT  #{userIdx}, 
@@ -32,6 +32,32 @@
     <select id="count" parameterType="RewardInfoDto" resultType="Integer"> 
         SELECT count(`idx`) 
         FROM `reward` 
-        WHERE `reg_date` >= #{yesterDate} 
+        WHERE  DATE(`reg_date`) > #{yesterDate} 
     </select>
+
+    <select id="list" parameterType="Date" resultType="RewardUserDto">
+        SELECT  `r`.`idx`,
+                `u`.`idx` AS `userIdx`,
+                `u`.`name`,
+                `u`.`email`,
+                `ud`.`point`,
+                `r`.`reg_date`
+        FROM `user` `u`
+        INNER JOIN `reward` `r`
+            on `u`.`idx` = `r`.`user_idx`
+            INNER JOIN `user_data` `ud`
+            on `u`.`idx` = `ud`.`user_idx`
+        WHERE DATE(`r`.`reg_date`) = #{regDate}
+        ORDER BY `r`.`reg_date` asc;
+    </select>
+
+    <!-- UPDATE -->
+    <update id="rewardPoint" parameterType="RewardInfoDto">
+        UPDATE `user_data` `ud`
+        SET `ud`.`point` = `ud`.`point` +(  SELECT `r`.`count` * 100 
+                                            FROM `reward` `r` 
+                                            WHERE `r`.`idx` = #{idx})
+        WHERE `ud`.`user_idx` = #{userIdx};
+
+    </update>
 </mapper>

@@ -1,5 +1,5 @@
 @host=http://localhost:8080
-@email=unazuv@fagdo.nu
+@email=test@test.com
 @password=1q2w3e4r!#@$QWER
 @name=random name
 @token=
@@ -39,7 +39,7 @@ Content-Type: application/json
 }
 
 ###
-# Sign -------------------------------
+# Reward -------------------------------
 # Reward 받기
 
 @token = {{login.response.body.data.token}}

@@ -1,10 +1,15 @@
 package com.duplicate.requests.avoid.api.reward.service;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.duplicate.requests.avoid.api.reward.dto.RewardInfoDto;
+import com.duplicate.requests.avoid.api.reward.dto.RewardUserDto;
 import com.duplicate.requests.avoid.api.reward.mapper.RewardMapper;
 
 import lombok.AllArgsConstructor;
@@ -23,9 +28,23 @@ public class RewardService {
         RewardInfoDto rewardInfoDto = new RewardInfoDto(userIdx, REWARD_CNT);
 
         if (REWARD_CNT > this.rewardMapper.count(rewardInfoDto)) {
-            return this.rewardMapper.insert(rewardInfoDto);
+            if (this.rewardMapper.insert(rewardInfoDto) == 1) {
+                // 선착순 등록 했을 때 포인트 지금후 return
+                return this.rewardMapper.rewardPoint(rewardInfoDto);
+            }
+            return 2; // 이미 선착순 등록이 되었을 때
         }
-        return 0;
+        return 0; // 선착순에 등록이 되지 않았을 때
     }
 
+    // READ
+    public List<RewardUserDto> list(Date date) {
+
+        List<RewardUserDto> userDtos = this.rewardMapper.list(date);
+        if (userDtos == null) {
+            return new ArrayList<>();
+        }
+
+        return userDtos;
+    }
 }

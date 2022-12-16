@@ -12,22 +12,22 @@
 > 
 > controller, service, mapper를 기준으로 프로젝트를 구성하지 않고
 > ```
->     ├─ api 
->     │  ├─ controller
->     │  │  └─ RewardController.java
->     │  ├─ service
->     │  │  └─ RewardService.java
->     │  ├─ mapper
->     │  │  └─ RewardMapper.java
+> ├─ api 
+> │  ├─ controller
+> │  │  └─ RewardController.java
+> │  ├─ service
+> │  │  └─ RewardService.java
+> │  ├─ mapper
+> │  │  └─ RewardMapper.java
 > ```
 > sign, user, reward 및 하나의 큰 Request 기준으로 프로젝트가 구성 되어 있습니다.
 > ```
->     ├─ api 
->     │  ├─ reward 
->     │  │  ├─ dto
->     │  │  ├─ mapper
->     │  │  ├─ RewardController.java
->     │  │  └─ service
+>├─ api 
+>│  ├─ reward 
+>│  │  ├─ dto
+>│  │  ├─ mapper
+>│  │  ├─ RewardController.java
+>│  │  └─ service
 > ```
 
 ```
