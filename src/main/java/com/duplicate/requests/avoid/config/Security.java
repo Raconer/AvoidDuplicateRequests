@@ -29,6 +29,7 @@ public class Security {
         return new BCryptPasswordEncoder();
     }
 
+    // 테스트를 위해 회원 가입 permitAll
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
