@@ -2,6 +2,7 @@ package com.duplicate.requests.avoid.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -33,10 +34,9 @@ public class Security {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/sign",
-                        "/api/sign/refresh")
-                .permitAll()
+                .antMatchers(HttpMethod.POST, "/api/sign", "/api/sign/refresh").permitAll()
                 .antMatchers("/api/**").authenticated()
+                .antMatchers(HttpMethod.GET, "/api/sign").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .sessionManagement()

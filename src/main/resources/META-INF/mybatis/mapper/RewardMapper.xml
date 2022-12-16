@@ -28,4 +28,10 @@
         ]]>
     </insert>
 
+    <!-- Read -->
+    <select id="count" parameterType="RewardInfoDto" resultType="Integer"> 
+        SELECT count(`idx`) 
+        FROM `reward` 
+        WHERE `reg_date` >= #{yesterDate} 
+    </select>
 </mapper>

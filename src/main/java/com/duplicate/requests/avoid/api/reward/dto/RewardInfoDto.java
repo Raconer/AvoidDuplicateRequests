@@ -13,8 +13,9 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 public class RewardInfoDto extends RewardDto {
     private String yesterDate;
+    private int rewardCnt;
 
-    public RewardInfoDto(int userIdx) {
+    public RewardInfoDto(int userIdx, int rewardCnt) {
         super.setUserIdx(userIdx);
         super.setRegDate(new Date());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -22,5 +23,6 @@ public class RewardInfoDto extends RewardDto {
         cal.add(Calendar.DATE, -1);
 
         this.yesterDate = sdf.format(cal.getTime());
+        this.rewardCnt = rewardCnt;
     }
 }

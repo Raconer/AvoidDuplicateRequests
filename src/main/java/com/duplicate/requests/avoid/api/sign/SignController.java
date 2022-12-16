@@ -15,7 +15,6 @@ import com.duplicate.requests.avoid.api.sign.dto.AuthDto;
 import com.duplicate.requests.avoid.api.sign.service.SignService;
 import com.duplicate.requests.avoid.api.user.dto.AccountDto;
 import com.duplicate.requests.avoid.api.user.dto.UserDto;
-import com.duplicate.requests.avoid.api.user.service.UserService;
 import com.duplicate.requests.avoid.common.code.ValidCode;
 import com.duplicate.requests.avoid.common.model.DefDataResponse;
 import com.duplicate.requests.avoid.common.model.DefResponse;
@@ -31,7 +30,6 @@ import lombok.extern.slf4j.Slf4j;
 public class SignController {
 
     SignService signService;
-    UserService userService;
 
     /* 회원 가입 */
     @PostMapping("/up")

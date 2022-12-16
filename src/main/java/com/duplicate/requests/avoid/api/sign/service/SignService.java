@@ -37,7 +37,7 @@ public class SignService implements UserDetailsService {
         }
 
         if (userService.insert(userDto) == 1) {
-            return userDataService.insert(userDto.getIdx());
+            return this.userDataService.insert(userDto.getIdx());
         }
         return 0;
     }

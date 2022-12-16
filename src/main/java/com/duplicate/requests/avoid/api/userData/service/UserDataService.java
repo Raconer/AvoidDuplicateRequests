@@ -19,6 +19,6 @@ public class UserDataService {
     }
 
     public int insert(UserDataDto userData) {
-        return userDataMapper.insert(userData);
+        return this.userDataMapper.insert(userData);
     }
 }

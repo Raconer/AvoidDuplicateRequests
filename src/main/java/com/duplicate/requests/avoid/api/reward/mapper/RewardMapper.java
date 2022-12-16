@@ -12,4 +12,6 @@ public interface RewardMapper {
     // Create
     int insert(RewardInfoDto rewardInfoDto);
 
+    // Read
+    int count(RewardInfoDto rewardInfoDto);
 }

@@ -3,45 +3,51 @@
 <mapper namespace="com.duplicate.requests.avoid.api.user.mapper.UserMapper">
 
     <!-- Create -->
-    <insert id="insert" parameterType="UserDto" useGeneratedKeys="true" keyProperty="idx">
+    <insert id="insert" parameterType="UserDto" useGeneratedKeys="true" keyProperty="idx"> 
         INSERT INTO `user` (email, name, password, reg_date) 
-        VALUES(#{email}, #{name}, #{password}, #{regDate});
+        VALUES(#{email}, #{name}, #{password}, #{regDate}); 
     </insert>
 
     <!-- Read -->
-    <select id="get" parameterType="UserDto" resultType="UserDto">
-        SELECT  `idx`,
-                `email`,
+    <select id="get" parameterType="UserDto" resultType="UserDto"> 
+        SELECT  `idx`, 
+                `email`, 
                 `name`,
-                `password`,
-                `reg_date`,
-                `refresh_token`
-        FROM    `user`
+                `password`, 
+                `reg_date`, 
+                `refresh_token` 
+        FROM `user` 
         <where>
             <if test="email != null and email != ''">
                 AND `email` = #{email}
             </if>
-            <if test="refreshToken != null and refreshToken != ''">
-                AND `refresh_token` = #{refreshToken}
+            <if test="refreshToken != null and refreshToken != ''"> 
+                AND `refresh_token` =#{refreshToken} 
             </if>
-        </where>
-        LIMIT 1;
+        </where> LIMIT 1; 
+    </select>
+
+    <select id="getList" resultType="UserDto"> 
+        SELECT  `idx`, 
+                `email`, 
+                `name`,
+                `reg_date`, 
+                `refresh_token` 
+        FROM `user`;
     </select>
 
     <!-- Update -->
-    <update id="update" parameterType="UserDto">
-        UPDATE `user`
+    <update id="update" parameterType="UserDto"> 
+        UPDATE `user` 
         <trim prefix="SET" suffixOverrides=",">
-            <if test="refreshToken != null and refreshToken != ''">
-                refresh_token = #{refreshToken},
-            </if>
+            <if test="refreshToken != null and refreshToken != ''"> refresh_token = #{refreshToken}, </if>
         </trim>
         <where>
             <choose>
-                <otherwise>
-                    AND `idx` = #{idx}
-                </otherwise>
+                <otherwise> AND `idx` = #{idx} </otherwise>
             </choose>
         </where>
     </update>
+
+
 </mapper>

@@ -1,5 +1,7 @@
 package com.duplicate.requests.avoid.api.user.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +15,8 @@ public interface UserMapper {
 
     // Read
     UserDto get(UserDto user);
+
+    List<UserDto> getList();
 
     // Update
     int update(UserDto user);

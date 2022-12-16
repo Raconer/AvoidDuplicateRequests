@@ -1,9 +1,11 @@
 package com.duplicate.requests.avoid.api.user.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.duplicate.requests.avoid.api.sign.dto.AuthDto;
 import com.duplicate.requests.avoid.api.user.dto.UserDto;
 import com.duplicate.requests.avoid.api.user.mapper.UserMapper;
 import com.duplicate.requests.avoid.utils.PasswordUtil;
@@ -24,16 +26,20 @@ public class UserService {
 
         userDto.setRegDate(new Date());
 
-        return userMapper.insert(userDto);
+        return this.userMapper.insert(userDto);
     }
 
     // Read
     public UserDto get(UserDto userDto) {
-        return userMapper.get(userDto);
+        return this.userMapper.get(userDto);
+    }
+
+    public List<UserDto> getList() {
+        return this.userMapper.getList();
     }
 
     // Update
     public int update(UserDto userDto) {
-        return userMapper.update(userDto);
+        return this.userMapper.update(userDto);
     }
 }
