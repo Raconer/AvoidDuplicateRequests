@@ -21,9 +21,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource(properties = { "spring.config.location = classpath:application-default.yml" })
@@ -57,7 +54,7 @@ public class SignControllerTest {
                     .andExpect(status().isOk())
                     .andDo(print())
                     .andReturn();
-            log.info("Result : ", result.getResponse().getContentAsString());
+            System.out.println(result.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,8 +81,7 @@ public class SignControllerTest {
                     .andExpect(status().isOk())
                     .andDo(print())
                     .andReturn();
-
-            log.info("Result : ", result.getResponse().getContentAsString());
+            System.out.println(result.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,8 +111,7 @@ public class SignControllerTest {
                     .andExpect(status().isOk())
                     .andDo(print())
                     .andReturn();
-
-            System.out.println(result.getResponse().getContentAsString());
+            System.out.println(result.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

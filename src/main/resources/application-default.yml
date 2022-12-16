@@ -1,10 +1,15 @@
+
 server:
     port: 8080
+    servlet:
+        jsp:
+            init-parameters:
+                development: true
 spring:
     devtools:
         add-properties: false
         livereload:
-            enabled: true
+            enabled: true 
     # DB
     datasource:
         driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
@@ -15,6 +20,10 @@ spring:
             connectionTimeout: 5000
             validationTimeout: 1000
             maximumPoolSize: 10
+    mvc:
+        view:
+            prefix: /WEB-INF/views/
+            suffix: .jsp
 mybatis:
     config-location: classpath:/META-INF/mybatis/mybatis-config.xml
     mapper-locations: classpath:/META-INF/mybatis/*/*.xml

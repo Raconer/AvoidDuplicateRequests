@@ -14,9 +14,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource(properties = { "spring.config.location = classpath:application-default.yml" })
@@ -35,7 +32,7 @@ public class RewardControllerTest {
                     .andExpect(status().isOk())
                     .andDo(print())
                     .andReturn();
-            log.info("Result : ", result.getResponse().getContentAsString());
+            System.out.println(result.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -25,6 +25,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// Develop Tool
 	implementation 'org.springframework.boot:spring-boot-devtools'
+	// Find Views Path
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	// JSP TagLIB
+	// taglibs
+implementation group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'
+	// JSTL Dependency
+	implementation 'javax.servlet:jstl:1.2'
 	// DB
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
