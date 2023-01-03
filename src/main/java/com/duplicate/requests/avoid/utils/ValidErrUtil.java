@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 
 import com.duplicate.requests.avoid.common.code.ValidCode;
-import com.duplicate.requests.avoid.common.model.DefDataResponse;
-import com.duplicate.requests.avoid.common.model.valid.Validate;
+import com.duplicate.requests.avoid.model.DefDataResponse;
+import com.duplicate.requests.avoid.model.valid.Validate;
 
 public class ValidErrUtil {
     public static ResponseEntity<?> getValidateError(List<FieldError> errors) {

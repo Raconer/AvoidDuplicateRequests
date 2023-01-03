@@ -1,19 +1,17 @@
-package com.duplicate.requests.avoid.dto.reward;
+package com.duplicate.requests.avoid.model.reward;
 
 import com.duplicate.requests.avoid.common.code.RewardCode;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-public class RewardCounter {
+@Data
+public class RewardCount {
     private RewardCode rewardCode;
     private int limit;
 
     private static final int END = 0;
 
-    public RewardCounter(RewardCode rewardCode, int limit) {
+    public RewardCount(RewardCode rewardCode, int limit) {
         this.rewardCode = rewardCode;
         this.limit = limit;
     }

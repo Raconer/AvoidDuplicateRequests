@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.duplicate.requests.avoid.common.code.ValidCode;
-import com.duplicate.requests.avoid.common.model.DefDataResponse;
-import com.duplicate.requests.avoid.common.model.DefResponse;
-import com.duplicate.requests.avoid.dto.auth.AccountDto;
-import com.duplicate.requests.avoid.dto.auth.AuthDto;
-import com.duplicate.requests.avoid.dto.user.UserDto;
+import com.duplicate.requests.avoid.model.DefDataResponse;
+import com.duplicate.requests.avoid.model.DefResponse;
+import com.duplicate.requests.avoid.model.dto.auth.AccountDto;
+import com.duplicate.requests.avoid.model.dto.auth.AuthDto;
+import com.duplicate.requests.avoid.model.dto.user.UserDto;
 import com.duplicate.requests.avoid.service.SignService;
 import com.duplicate.requests.avoid.utils.ValidErrUtil;
 

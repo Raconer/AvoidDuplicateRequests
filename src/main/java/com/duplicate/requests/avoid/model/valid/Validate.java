@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.common.model.valid;
+package com.duplicate.requests.avoid.model.valid;
 
 import lombok.Data;
 

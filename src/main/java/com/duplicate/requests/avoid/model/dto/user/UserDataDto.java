@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.dto.user;
+package com.duplicate.requests.avoid.model.dto.user;
 
 import lombok.Data;
 

@@ -1,14 +1,13 @@
 package com.duplicate.requests.avoid.service;
 
 import java.util.Set;
-import java.util.UUID;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.duplicate.requests.avoid.common.code.RewardCode;
-import com.duplicate.requests.avoid.dto.reward.RedisRewardDto;
-import com.duplicate.requests.avoid.dto.reward.RewardCounter;
+import com.duplicate.requests.avoid.model.reward.Reward;
+import com.duplicate.requests.avoid.model.reward.RewardCount;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +22,7 @@ public class RedisRewardService {
     private static final long LAST_ELEMENT = -1;
     private static final long PUBLISH_SIZE = 10;
     private static final long LAST_INDEX = 1;
-    private RewardCounter rewardCounter;
+    private RewardCount rewardCount;
 
     public void addQueue(RewardCode rewardCode) {
         final String people = Thread.currentThread().getName();
@@ -51,11 +50,11 @@ public class RedisRewardService {
 
         Set<Object> queue = redisTemplate.opsForZSet().range(rewardCode.toString(), start, end);
         for (Object people : queue) {
-            final RedisRewardDto redisRewardDto = new RedisRewardDto(rewardCode);
+            final Reward redisRewardDto = new Reward(rewardCode);
             log.info("'{}'님의 {} 기프티콘이 발급되었습니다 ({})", people, redisRewardDto.getRewardCode().getName(),
                     redisRewardDto.getCode());
             redisTemplate.opsForZSet().remove(rewardCode.toString(), people);
-            this.rewardCounter.decrease();
+            this.rewardCount.decrease();
         }
     }
 

@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import com.duplicate.requests.avoid.dto.reward.RewardInfoDto;
-import com.duplicate.requests.avoid.dto.reward.RewardUserDto;
+import com.duplicate.requests.avoid.model.dto.reward.RewardInfoDto;
+import com.duplicate.requests.avoid.model.dto.reward.RewardUserDto;
 
 @Mapper
 @Repository

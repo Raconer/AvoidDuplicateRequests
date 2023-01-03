@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.duplicate.requests.avoid.common.model.DefDataResponse;
-import com.duplicate.requests.avoid.common.model.DefResponse;
-import com.duplicate.requests.avoid.dto.user.UserDto;
+import com.duplicate.requests.avoid.model.DefDataResponse;
+import com.duplicate.requests.avoid.model.DefResponse;
+import com.duplicate.requests.avoid.model.dto.user.UserDto;
 import com.duplicate.requests.avoid.service.UserService;
 
 import lombok.AllArgsConstructor;

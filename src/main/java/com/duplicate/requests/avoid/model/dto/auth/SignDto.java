@@ -1,8 +1,8 @@
-package com.duplicate.requests.avoid.dto.auth;
+package com.duplicate.requests.avoid.model.dto.auth;
 
 import org.springframework.security.core.userdetails.User;
 
-import com.duplicate.requests.avoid.dto.user.UserDto;
+import com.duplicate.requests.avoid.model.dto.user.UserDto;
 
 import lombok.Getter;
 import lombok.Setter;

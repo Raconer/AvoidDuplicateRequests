@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.common.model;
+package com.duplicate.requests.avoid.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.dto.auth;
+package com.duplicate.requests.avoid.model.dto.auth;
 
 import javax.validation.constraints.NotBlank;
 

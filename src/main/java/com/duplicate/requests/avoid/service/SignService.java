@@ -11,10 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.duplicate.requests.avoid.dto.auth.AccountDto;
-import com.duplicate.requests.avoid.dto.auth.AuthDto;
-import com.duplicate.requests.avoid.dto.auth.SignDto;
-import com.duplicate.requests.avoid.dto.user.UserDto;
+import com.duplicate.requests.avoid.model.dto.auth.AccountDto;
+import com.duplicate.requests.avoid.model.dto.auth.AuthDto;
+import com.duplicate.requests.avoid.model.dto.auth.SignDto;
+import com.duplicate.requests.avoid.model.dto.user.UserDto;
 import com.duplicate.requests.avoid.utils.JwtUtil;
 import com.duplicate.requests.avoid.utils.PasswordUtil;
 

@@ -1,10 +1,10 @@
-package com.duplicate.requests.avoid.dto.user;
+package com.duplicate.requests.avoid.model.dto.user;
 
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 
-import com.duplicate.requests.avoid.dto.auth.AccountDto;
+import com.duplicate.requests.avoid.model.dto.auth.AccountDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

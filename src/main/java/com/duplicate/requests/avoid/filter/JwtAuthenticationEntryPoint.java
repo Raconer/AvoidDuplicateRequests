@@ -11,7 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-import com.duplicate.requests.avoid.common.model.DefResponse;
+import com.duplicate.requests.avoid.model.DefResponse;
 import com.google.gson.Gson;
 
 @Component

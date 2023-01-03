@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.dto.reward;
+package com.duplicate.requests.avoid.model.reward;
 
 import java.util.UUID;
 
@@ -7,11 +7,11 @@ import com.duplicate.requests.avoid.common.code.RewardCode;
 import lombok.Data;
 
 @Data
-public class RedisRewardDto {
+public class Reward {
     private RewardCode rewardCode;
     private String code;
 
-    public RedisRewardDto(RewardCode rewardCode) {
+    public Reward(RewardCode rewardCode) {
         this.rewardCode = rewardCode;
         this.code = UUID.randomUUID().toString();
     }

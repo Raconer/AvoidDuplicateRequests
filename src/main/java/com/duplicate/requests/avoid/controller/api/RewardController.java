@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.duplicate.requests.avoid.common.model.DefDataResponse;
-import com.duplicate.requests.avoid.common.model.DefResponse;
-import com.duplicate.requests.avoid.dto.auth.SignDto;
-import com.duplicate.requests.avoid.dto.reward.RewardUserDto;
+import com.duplicate.requests.avoid.model.DefDataResponse;
+import com.duplicate.requests.avoid.model.DefResponse;
+import com.duplicate.requests.avoid.model.dto.auth.SignDto;
+import com.duplicate.requests.avoid.model.dto.reward.RewardUserDto;
 import com.duplicate.requests.avoid.service.RewardService;
 
 import lombok.AllArgsConstructor;
