@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.controller;
+package com.duplicate.requests.avoid.controller.api;
 
 import javax.validation.Valid;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.duplicate.requests.avoid.common.code.ValidCode;
 import com.duplicate.requests.avoid.common.model.DefDataResponse;
 import com.duplicate.requests.avoid.common.model.DefResponse;
-import com.duplicate.requests.avoid.dto.AccountDto;
-import com.duplicate.requests.avoid.dto.AuthDto;
-import com.duplicate.requests.avoid.dto.UserDto;
+import com.duplicate.requests.avoid.dto.auth.AccountDto;
+import com.duplicate.requests.avoid.dto.auth.AuthDto;
+import com.duplicate.requests.avoid.dto.user.UserDto;
 import com.duplicate.requests.avoid.service.SignService;
 import com.duplicate.requests.avoid.utils.ValidErrUtil;
 

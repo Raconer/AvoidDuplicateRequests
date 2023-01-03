@@ -1,6 +1,5 @@
 package com.duplicate.requests.avoid.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -9,23 +8,22 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import com.duplicate.requests.avoid.properties.RedisProperty;
+
+import lombok.RequiredArgsConstructor;
+
 @Configuration
+@RequiredArgsConstructor
 public class RedisConfig {
-    @Value("${spring.redis.host}")
-    private String redisHost;
 
-    @Value("${spring.redis.port}")
-    private String redisPort;
-
-    @Value("${spring.redis.password}")
-    private String redisPassword;
+    private final RedisProperty redisProperty;
 
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName(redisHost);
-        redisStandaloneConfiguration.setPort(Integer.parseInt(redisPort));
-        redisStandaloneConfiguration.setPassword(redisPassword);
+        redisStandaloneConfiguration.setHostName(redisProperty.getHost());
+        redisStandaloneConfiguration.setPort(redisProperty.getPort());
+        redisStandaloneConfiguration.setPassword(redisProperty.getPassword());
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
     }
 

@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.dto;
+package com.duplicate.requests.avoid.dto.reward;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

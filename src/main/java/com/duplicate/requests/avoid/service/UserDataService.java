@@ -2,7 +2,7 @@ package com.duplicate.requests.avoid.service;
 
 import org.springframework.stereotype.Service;
 
-import com.duplicate.requests.avoid.dto.UserDataDto;
+import com.duplicate.requests.avoid.dto.user.UserDataDto;
 import com.duplicate.requests.avoid.mapper.UserDataMapper;
 
 import lombok.AllArgsConstructor;

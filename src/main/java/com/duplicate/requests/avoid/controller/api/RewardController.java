@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.controller;
+package com.duplicate.requests.avoid.controller.api;
 
 import java.util.Date;
 import java.util.List;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.duplicate.requests.avoid.common.model.DefDataResponse;
 import com.duplicate.requests.avoid.common.model.DefResponse;
-import com.duplicate.requests.avoid.dto.RewardUserDto;
-import com.duplicate.requests.avoid.dto.SignDto;
+import com.duplicate.requests.avoid.dto.auth.SignDto;
+import com.duplicate.requests.avoid.dto.reward.RewardUserDto;
 import com.duplicate.requests.avoid.service.RewardService;
 
 import lombok.AllArgsConstructor;

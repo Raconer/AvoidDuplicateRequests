@@ -37,10 +37,10 @@ public class Security {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/sign/**")
+                .antMatchers("/**")
                 .permitAll()
-                .antMatchers("/api/**").authenticated()
-                .antMatchers(HttpMethod.GET, "/api/sign").authenticated()
+                // .antMatchers("/api/**").authenticated()
+                // .antMatchers(HttpMethod.GET, "/api/sign").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .sessionManagement()

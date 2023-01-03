@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.duplicate.requests.avoid.dto.UserDto;
+import com.duplicate.requests.avoid.dto.user.UserDto;
 import com.duplicate.requests.avoid.mapper.UserMapper;
 import com.duplicate.requests.avoid.utils.PasswordUtil;
 

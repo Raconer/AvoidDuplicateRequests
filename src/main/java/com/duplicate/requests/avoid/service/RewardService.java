@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.duplicate.requests.avoid.dto.RewardInfoDto;
-import com.duplicate.requests.avoid.dto.RewardUserDto;
+import com.duplicate.requests.avoid.dto.reward.RewardInfoDto;
+import com.duplicate.requests.avoid.dto.reward.RewardUserDto;
 import com.duplicate.requests.avoid.mapper.RewardMapper;
 
 import lombok.AllArgsConstructor;
