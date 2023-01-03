@@ -1,12 +1,12 @@
-package com.duplicate.requests.avoid.api.user.service;
+package com.duplicate.requests.avoid.service;
 
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.duplicate.requests.avoid.api.user.dto.UserDto;
-import com.duplicate.requests.avoid.api.user.mapper.UserMapper;
+import com.duplicate.requests.avoid.dto.UserDto;
+import com.duplicate.requests.avoid.mapper.UserMapper;
 import com.duplicate.requests.avoid.utils.PasswordUtil;
 
 import lombok.AllArgsConstructor;

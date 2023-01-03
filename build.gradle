@@ -1,12 +1,12 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '2.7.6'
+	id 'org.springframework.boot' version '2.7.7'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'com.duplicate.requests'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 configurations {
 	compileOnly {
@@ -29,7 +29,7 @@ dependencies {
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	// JSP TagLIB
 	// taglibs
-implementation group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'
+	implementation group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'
 	// JSTL Dependency
 	implementation 'javax.servlet:jstl:1.2'
 	// DB
@@ -46,6 +46,9 @@ implementation group: 'org.apache.taglibs', name: 'taglibs-standard-impl', versi
 	implementation 'org.apache.commons:commons-lang3:3.4'
 	// GSON Jwt Auth Entry Point json 파일 생성
 	implementation 'com.google.code.gson:gson:2.9.0'
+	// Redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.0.1'
+
 	// Properties
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

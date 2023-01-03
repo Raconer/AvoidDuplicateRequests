@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.reward.dto;
+package com.duplicate.requests.avoid.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

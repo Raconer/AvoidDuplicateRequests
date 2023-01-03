@@ -14,9 +14,9 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import com.duplicate.requests.avoid.api.sign.dto.AuthDto;
-import com.duplicate.requests.avoid.api.user.dto.AccountDto;
-import com.duplicate.requests.avoid.api.user.dto.UserDto;
+import com.duplicate.requests.avoid.dto.AccountDto;
+import com.duplicate.requests.avoid.dto.AuthDto;
+import com.duplicate.requests.avoid.dto.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;

@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.user.dto;
+package com.duplicate.requests.avoid.dto;
 
 import javax.validation.constraints.NotBlank;
 

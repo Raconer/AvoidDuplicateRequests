@@ -1,11 +1,11 @@
-package com.duplicate.requests.avoid.api.user.mapper;
+package com.duplicate.requests.avoid.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import com.duplicate.requests.avoid.api.user.dto.UserDto;
+import com.duplicate.requests.avoid.dto.UserDto;
 
 @Mapper
 @Repository

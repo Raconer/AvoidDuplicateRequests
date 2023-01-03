@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.sign.dto;
+package com.duplicate.requests.avoid.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

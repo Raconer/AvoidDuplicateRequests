@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.reward.service;
+package com.duplicate.requests.avoid.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.duplicate.requests.avoid.api.reward.dto.RewardInfoDto;
-import com.duplicate.requests.avoid.api.reward.dto.RewardUserDto;
-import com.duplicate.requests.avoid.api.reward.mapper.RewardMapper;
+import com.duplicate.requests.avoid.dto.RewardInfoDto;
+import com.duplicate.requests.avoid.dto.RewardUserDto;
+import com.duplicate.requests.avoid.mapper.RewardMapper;
 
 import lombok.AllArgsConstructor;
 

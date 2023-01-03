@@ -1,4 +1,4 @@
-package com.duplicate.requests.avoid.api.sign.service;
+package com.duplicate.requests.avoid.service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,12 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.duplicate.requests.avoid.api.sign.dto.AuthDto;
-import com.duplicate.requests.avoid.api.sign.dto.SignDto;
-import com.duplicate.requests.avoid.api.user.dto.AccountDto;
-import com.duplicate.requests.avoid.api.user.dto.UserDto;
-import com.duplicate.requests.avoid.api.user.service.UserService;
-import com.duplicate.requests.avoid.api.userData.service.UserDataService;
+import com.duplicate.requests.avoid.dto.AccountDto;
+import com.duplicate.requests.avoid.dto.AuthDto;
+import com.duplicate.requests.avoid.dto.SignDto;
+import com.duplicate.requests.avoid.dto.UserDto;
 import com.duplicate.requests.avoid.utils.JwtUtil;
 import com.duplicate.requests.avoid.utils.PasswordUtil;
 

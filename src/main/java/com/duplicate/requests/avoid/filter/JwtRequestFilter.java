@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.duplicate.requests.avoid.api.sign.service.SignService;
+import com.duplicate.requests.avoid.service.SignService;
 import com.duplicate.requests.avoid.utils.JwtUtil;
 
 import lombok.AllArgsConstructor;
