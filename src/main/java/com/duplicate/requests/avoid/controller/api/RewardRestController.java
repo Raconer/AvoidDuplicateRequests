@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/reward")
 @AllArgsConstructor
-public class RewardController {
+public class RewardRestController {
 
     RewardService rewardService;
 

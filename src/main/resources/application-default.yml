@@ -37,7 +37,7 @@ spring:
 mybatis:
     config-location: classpath:/META-INF/mybatis/mybatis-config.xml
     mapper-locations: classpath:/META-INF/mybatis/*/*.xml
-    type-aliases-package: com.duplicate.requests.avoid.dto
+    type-aliases-package: com.duplicate.requests.avoid.model.dto
 logging:
     config: classpath:logback.xml
 

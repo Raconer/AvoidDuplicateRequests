@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/sign")
-public class SignController {
+public class SignRestController {
 
     SignService signService;
 

@@ -9,20 +9,28 @@ import com.duplicate.requests.avoid.common.code.RewardCode;
 import com.duplicate.requests.avoid.model.reward.Reward;
 import com.duplicate.requests.avoid.model.reward.RewardCount;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class RedisRewardService {
 
     private final RedisTemplate<String, Object> redisTemplate;
+    private RewardCount rewardCount;
     private static final long FIRST_ELEMENT = 0;
     private static final long LAST_ELEMENT = -1;
     private static final long PUBLISH_SIZE = 10;
     private static final long LAST_INDEX = 1;
-    private RewardCount rewardCount;
+
+    // public RedisRewardService(RedisTemplate<String, Object> redisTemplate) {
+    // this.redisTemplate = redisTemplate;
+    // }
+
+    public void setEventCount(RewardCode rewardCode, int queue) {
+        this.rewardCount = new RewardCount(rewardCode, queue);
+    }
 
     public void addQueue(RewardCode rewardCode) {
         final String people = Thread.currentThread().getName();
@@ -56,6 +64,14 @@ public class RedisRewardService {
             redisTemplate.opsForZSet().remove(rewardCode.toString(), people);
             this.rewardCount.decrease();
         }
+    }
+
+    public boolean validEnd() {
+        return this.rewardCount != null ? this.rewardCount.end() : false;
+    }
+
+    public long getSize(RewardCode rewardCode) {
+        return this.redisTemplate.opsForZSet().size(rewardCode.toString());
     }
 
 }

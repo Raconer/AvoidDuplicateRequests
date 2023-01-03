@@ -2,9 +2,11 @@ package com.duplicate.requests.avoid.model.reward;
 
 import com.duplicate.requests.avoid.common.code.RewardCode;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class RewardCount {
     private RewardCode rewardCode;
     private int limit;
